@@ -1,5 +1,5 @@
 # ==============================================================================
-# EJERCICIO 5: SIMULADOR DE CUENTA BANCARIA (INTRODUCCIÓN A CLASES)
+# SIMULADOR DE CUENTA BANCARIA (INTRODUCCIÓN A CLASES)
 # Tiempo estimado: 30 minutos
 # Temas clave: Clases, Objetos, Constructor (__init__), Métodos de instancia, Atributos
 # ==============================================================================

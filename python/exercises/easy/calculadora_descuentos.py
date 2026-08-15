@@ -1,5 +1,5 @@
 # ==============================================================================
-# EJERCICIO 1: CALCULADORA INTERACTIVA DE DESCUENTOS
+# CALCULADORA INTERACTIVA DE DESCUENTOS
 # Tiempo estimado: 30 minutos
 # Temas clave: Variables, Tipos de datos, Operadores, Condicionales, Input/Output
 # ==============================================================================

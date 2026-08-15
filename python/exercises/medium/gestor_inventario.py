@@ -1,5 +1,5 @@
 # ==============================================================================
-# EJERCICIO 3: GESTOR DE INVENTARIO SIMPLIFICADO
+# GESTOR DE INVENTARIO SIMPLIFICADO
 # Tiempo estimado: 30 minutos
 # Temas clave: Listas, Tuplas, Loops, Métodos de Listas (append, remove, index), Control de Flujo
 # ==============================================================================

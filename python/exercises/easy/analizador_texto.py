@@ -1,5 +1,5 @@
 # ==============================================================================
-# EJERCICIO 2: ANALIZADOR DE TEXTO Y CONTADOR DE VOCALES
+# ANALIZADOR DE TEXTO Y CONTADOR DE VOCALES
 # Tiempo estimado: 30 minutos
 # Temas clave: Strings, Loops (for/while), Condicionales, Listas, Métodos de Strings
 # ==============================================================================
@@ -40,4 +40,30 @@
 # ==============================================================================
 
 # Escribe tu solución a partir de aquí:
+
+texto = input("Introduce un texto: ")
+
+#1. contar aparicion de cada vocal
+vocales = {'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0} #asociar cantidad con vocal, en apres, la mejor estructura es un diccionario
+
+for i in texto:
+    if i.lower() in vocales: #se convierte el caracter a minuscula y se verifica si esta en el diccionario
+        vocales[i.lower()] += 1 # si esta, se incrementa en 1, entre los corchetes se usa la letra en minuscula para acessar al valor de la llave
+
+#2. calcular cantidad de palabras
+cantidad_palabras = texto.split() #divide el texto en palabras. metodo split() divide la cadena de texto en una lista de palabras
+cantidad_palabras = len(cantidad_palabras) #cuenta la cantidad de palabras
+
+#3. contruir texto
+texto = texto.lower() #convierte el texto a minusculas
+
+# Optimización: Se itera sobre las 5 vocales en el diccionario (complejidad constante de 5 vueltas)
+# en lugar de recorrer cada caracter del texto (que dependía del largo de la frase).
+for vocal in vocales:
+    if vocal in texto:
+        texto = texto.replace(vocal, vocal.upper()) #reemplaza la vocal por su mayuscula. replace(cadena_original, cadena_reemplazada), upper(caracter): convierte a mayuscula
+
+print(f"Desglose de vocales: {vocales}")
+print(f"Total de palabras: {cantidad_palabras}")
+print(f"Texto transformado: {texto}")
 

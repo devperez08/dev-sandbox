@@ -1,5 +1,5 @@
 # ==============================================================================
-# EJERCICIO 4: REGISTRO DE ESTUDIANTES Y CURSOS
+# REGISTRO DE ESTUDIANTES Y CURSOS
 # Tiempo estimado: 30 minutos
 # Temas clave: Diccionarios, Sets (Conjuntos), Funciones (definición, parámetros, retorno)
 # ==============================================================================
