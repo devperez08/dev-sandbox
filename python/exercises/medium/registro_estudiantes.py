@@ -35,3 +35,76 @@
 
 # Escribe tu solución a partir de aquí:
 
+#1. diccionario vacio
+registro = {}
+
+#2. Registrar un estudiante
+def registrar_estudiante(registro, nombre_estudiante): #Parametros que vamos a recibir
+    if nombre_estudiante in registro: #verificar si el estudiante ya existe dentro del registro
+        print(f"El estudiante {nombre_estudiante} ya está registrado")
+
+    #2.1 agregar estudiante al registro con un conjunto vacio si no existe
+    else: #Si no existe
+        registro[nombre_estudiante] = set() #Agregamos el estudiante al registro con un conjunto vacio
+        print(f"Estudiante {nombre_estudiante} registrado correctamente")
+
+#3. Inscribir un curso en el registro
+def inscribir_curso(registro, nombre_estudiante, nombre_curso): #se entregan aprametros: el registro, el nombre del estudiante y el nombre del curso a inscribir
+    #3.1 Si el estudiante no existe en el registro, registrarlo automáticamente primero.
+    if nombre_estudiante not in registro: #verificar si el estudiante ya existe dentro del registro
+        registrar_estudiante(registro, nombre_estudiante)
+    registro[nombre_estudiante].add(nombre_curso) #Agregamos el curso al conjunto del estudiante al nombre correspondiente
+    print(f"El estudiante {nombre_estudiante} se ha inscrito al curso {nombre_curso}")
+
+
+#4. obtener los cursos de un estudiante
+def obtener_curso(registro, nombre_estudiante):
+    if nombre_estudiante in registro:
+        return registro[nombre_estudiante]
+    else:
+        return None
+
+#4.1 Obtener cursos en comun de dos estudiantes
+def cursos_en_comun(registro, estudiante1, estudiante2):
+    # Verificar si ambos estudiantes existen
+    if estudiante1 not in registro or estudiante2 not in registro:
+        return set() # Retorna conjunto vacío si alguno no existe
+    
+    # Obtener los cursos de cada estudiante
+    cursos1 = registro[estudiante1]
+    cursos2 = registro[estudiante2]
+    
+    # Intersección de conjuntos o cursos que estan en ambos conjuntos
+    return cursos1 & cursos2
+
+
+#5. Probar las funciones
+# 1. Registrar estudiantes
+registrar_estudiante(registro, "Juan")
+registrar_estudiante(registro, "Maria")
+registrar_estudiante(registro, "Carlos")
+
+# 2. Inscribir cursos
+inscribir_curso(registro, "Juan", "Matemáticas")
+inscribir_curso(registro, "Juan", "Física")
+inscribir_curso(registro, "Maria", "Matemáticas")
+inscribir_curso(registro, "Maria", "Química")
+inscribir_curso(registro, "Carlos", "Física")
+inscribir_curso(registro, "Carlos", "Química")
+
+# 3. Obtener cursos de un estudiante
+print(f"\nCursos de Juan: {obtener_curso(registro, 'Juan')}")
+print(f"Cursos de Maria: {obtener_curso(registro, 'Maria')}")
+
+# 4. Cursos en común
+print(f"\nCursos en común de Juan y Maria: {cursos_en_comun(registro, 'Juan', 'Maria')}")
+print(f"\nCursos en común de Juan y Carlos: {cursos_en_comun(registro, 'Juan', 'Carlos')}")
+
+
+def obtener_catalogo_cursos(registro):
+    catalogo = set()
+    for curso in registro.values(): #se utiliza el metodo .values() que me devuelve todos los valores del diccionario
+        catalogo.update(curso)
+    return catalogo
+
+print(f"catalogo de cursos: {obtener_catalogo_cursos(registro)}")

@@ -43,7 +43,7 @@
 
 texto = input("Introduce un texto: ")
 
-#1. contar aparicion de cada vocal
+#1. contar aparicion de cada vocal 
 vocales = {'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0} #asociar cantidad con vocal, en apres, la mejor estructura es un diccionario
 
 for i in texto:
@@ -66,4 +66,3 @@ for vocal in vocales:
 print(f"Desglose de vocales: {vocales}")
 print(f"Total de palabras: {cantidad_palabras}")
 print(f"Texto transformado: {texto}")
-
