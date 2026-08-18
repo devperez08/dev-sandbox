@@ -38,3 +38,97 @@
 
 # Escribe tu solución a partir de aquí:
 
+def agregar_producto(inventario):
+    nombre = str(input("nombre producto: "))
+    precio = float(input("ingrese precio: "))
+    cantidad = int(input("ingrese cantidad: "))
+    
+    # 1. Bandera (flag): Asumimos inicialmente que el producto NO existe
+    existe = False 
+    
+    # 2. Recorremos todo el inventario para verificar
+    for producto in inventario:
+        # Comparamos el nombre existente (producto[0]) con el nuevo en minúsculas
+        if producto[0] == nombre.lower():
+            existe = True # Si lo encuentra, activa la bandera
+            break         # Detiene el bucle (ya no necesita seguir buscando)
+            
+    # 3. Decisión final (la "vista general"):
+    if existe == False:
+        inventario.append((nombre.lower(), precio, cantidad)) # Se agrega como tupla, es decir las variables en un parentesis a la lista
+        print("producto agregado exitosamente")
+    else:
+        print("producto ya existe")
+
+def ver_inventario(inventario):
+    print("inventario completo")
+    for producto in inventario:
+        print(producto)
+
+def buscar_producto(inventario):
+    nombre = input("nombre del producto: ")
+
+    find = False
+    position = 0
+
+    for pos, producto in enumerate(inventario):
+        # Comparamos el nombre existente (producto[0]) con el nuevo en minúsculas
+        if producto[0] == nombre.lower():
+            find = True # Si lo encuentra, activa la bandera
+            position = pos
+            break    
+
+    if find == False:
+        print("producto no existente")
+    else:
+        print(inventario[position])
+
+def eliminar_producto(inventario):
+    print("----ELIMINAR PRODUCTO-----") 
+    nombre = input("nombre del producto: ")
+
+    find = False
+    position = 0
+
+    for pos, producto in enumerate(inventario):
+        # Comparamos el nombre existente (producto[0]) con el nuevo en minúsculas
+        if producto[0] == nombre.lower():
+            find = True # Si lo encuentra, activa la bandera
+            position = pos
+            break    
+
+    if find == False:
+        print("producto no existente")
+    else:
+        print(f"producto encontrado: {inventario[position]}")
+        opcion = input("desea eliminarlo Y/N")
+
+        if opcion.upper() == "Y":
+            inventario.pop(position)
+            print("producto eliminado")
+
+
+opcion = 0
+inventario = []
+
+while opcion != 5:
+    print("---------------menu---------------")
+    print("1. Agregar producto")
+    print("2. Ver inventario completo")
+    print("3. Buscar un producto por nombre")
+    print("4. Eliminar un producto del inventario por nombre")
+    print("5. Salir del programa")
+
+    opcion = int(input("ingrese opcion: "))
+
+    if opcion == 1:
+        agregar_producto(inventario)
+    elif opcion == 2:
+        ver_inventario(inventario)
+    elif opcion == 3:
+        buscar_producto(inventario)
+    elif opcion == 4:
+        eliminar_producto(inventario)
+
+
+
